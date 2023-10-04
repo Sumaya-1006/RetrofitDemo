@@ -26,8 +26,10 @@ public class MovieRepository {
         return client.getMovies();
     }
 
+
     public void searchMoviesApi(int pageNumber){
         client.searchMoviesApi(pageNumber);
     }
+
 
 }

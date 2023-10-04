@@ -17,11 +17,13 @@ public class MovieViewModel extends ViewModel  {
 
     }
 
-    public LiveData<List<MovieModel>> getMovies(){
+    public LiveData<List<MovieModel>> getMovies()
+    {
         return movieRepository.getMovies();
     }
 
     public void searchMovieApi(int pageNumber){
-      movieRepository.searchMoviesApi(pageNumber);
+
+        movieRepository.searchMoviesApi(pageNumber);
     }
 }

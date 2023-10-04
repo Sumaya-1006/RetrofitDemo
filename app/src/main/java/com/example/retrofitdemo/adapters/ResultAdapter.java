@@ -1,5 +1,6 @@
 package com.example.retrofitdemo.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +14,28 @@ import com.bumptech.glide.Glide;
 import com.example.retrofitdemo.R;
 import com.example.retrofitdemo.models.MovieModel;
 import com.example.retrofitdemo.service.MovieListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.MovieViewHolder>{
     ArrayList<MovieModel> list;
     MovieListener listener;
-    String url = "https://image.tmdb.org/t/p/w500";
+    Context context;
 
-    public ResultAdapter(  MovieListener listener) {
+    public ResultAdapter(ArrayList<MovieModel> list, MovieListener listener, Context context) {
+        this.list = list;
+        this.listener = listener;
+        this.context = context;
+    }
+
+    String url = "https://image.tmdb.org/t/p/w500/";
+
+   /* public ResultAdapter(  MovieListener listener) {
         this.list = list;
         this.listener = listener;
     }
-
+*/
     @NonNull
     @Override
     public ResultAdapter.MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,24 +49,11 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.MovieViewH
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         final  MovieModel model = list.get(position);
 
-        Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500"+model.getPosterPath()).into(((MovieViewHolder)holder).img);
-        ((MovieViewHolder)holder).id.setText(model.getOverview());
-        ((MovieViewHolder)holder).title.setText("title : "+model.getTitle());
-        ((MovieViewHolder)holder).date.setText("popularity : "+model.getPopularity());
+        Glide.with(context).load("https://image.tmdb.org/t/p/w500/"+model.getPosterPath()).into(((MovieViewHolder)holder).img);
+        ((MovieViewHolder)holder).id.setText("title : "+model.getTitle());
+        ((MovieViewHolder)holder).title.setText(model.getOverview());
+        ((MovieViewHolder)holder).date.setText("Date : "+model.getReleaseDate());
 
-           /*if (ApiRepositories.BASE_URL.startsWith("https")) {
-            Glide.with(holder.img.getContext())
-                    .load(url+model.getPosterPath())
-                    .error("https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg")
-                    .fitCenter()
-                    .into(holder.img);
-        } else {
-            Glide.with(holder.img.getContext())
-                    .load(url.replace("http","https"))
-                    .error(url)
-                    .fitCenter()
-                    .into(holder.img);
-        }*/
 
     }
 

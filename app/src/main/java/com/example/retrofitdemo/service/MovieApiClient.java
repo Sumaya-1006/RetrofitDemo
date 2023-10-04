@@ -67,10 +67,11 @@ public class MovieApiClient {
         @Override
         public void run() {
 
-             try{
-                Response response = getMovies(pageNumber).execute();
+          try{
 
-                if(cancelRequest){
+             Response response = getMovies(pageNumber).execute();
+
+             if(cancelRequest){
                     return;
                 }
                 if(response.code()==404){
@@ -88,6 +89,7 @@ public class MovieApiClient {
                     String error = response.errorBody().toString();
                     Log.d("Tag","Error" +error);
                     mMovies.postValue(null);
+
                 }
 
 
