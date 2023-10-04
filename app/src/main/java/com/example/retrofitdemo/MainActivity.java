@@ -1,6 +1,7 @@
  package com.example.retrofitdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,9 +37,8 @@ import retrofit2.Response;
      ArrayList<MovieModel> lists;
      ResultAdapter adapter;
      private MovieViewModel viewModel;
-     MovieRepository repository;
-     int pageNum;
-
+     //int pageNum;
+     Toolbar toolbar;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ import retrofit2.Response;
 
          recyclerView = findViewById(R.id.recView);
          lists = new ArrayList<>();
+         toolbar = findViewById(R.id.toolbar);
 
          recyclerView.setLayoutManager(new LinearLayoutManager(this));
          adapter = new ResultAdapter(lists,this,this);

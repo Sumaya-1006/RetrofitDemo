@@ -34,9 +34,10 @@ public class DetailsActivity extends AppCompatActivity {
         if(getIntent().hasExtra("movie")){
             MovieModel model = getIntent().getParcelableExtra("movie");
             Log.d("Tagy","Incoming intent : "+model.getOriginalTitle());
+
             Glide.with(this).load("https://image.tmdb.org/t/p/w500/"+model.getPosterPath()).into(details_img);
             details_text.setText(model.getOriginalTitle());
-            title_text.setText(model.getReleaseDate());
+            title_text.setText(model.getOverview());
             ratingBar.setRating((float) (model.getVoteAverage()/2));
         }
 

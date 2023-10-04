@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/details_img"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="44dp"
         android:scaleType="centerCrop"
         android:src="@drawable/posters"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,13 +21,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#EFEAEA"
         android:orientation="vertical"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/details_img"
         app:layout_constraintEnd_toEndOf="@+id/details_img"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/details_img">
 
         <TextView
@@ -44,7 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:ellipsize="end"
             android:text=" "
             android:textColor="#E90D0E0E" />
 
