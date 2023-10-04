@@ -56,14 +56,14 @@ import retrofit2.Response;
 
          getData();
          ObserveChanged();
-         searchMovieApi(1);
+         searchMovieApi(2);
 
 
      }
 
      private void getData() {
          ApiInterface apiInterface = Servey.getApiInterface();
-         Call<MovieSearchResponse> call = apiInterface.searchMovie(ApiRepositories.API_KEY,1);
+         Call<MovieSearchResponse> call = apiInterface.searchMovie(ApiRepositories.API_KEY,2);
          call.enqueue(new Callback<MovieSearchResponse>() {
              @Override
              public void onResponse(Call<MovieSearchResponse> call, Response<MovieSearchResponse> response) {
@@ -121,9 +121,9 @@ import retrofit2.Response;
 
      @Override
      public void onMovieListener(int position) {
-         Intent intent = new Intent(this,DetailsActivity.class);
-         intent.putExtra("movie",adapter.getItemCount());
-         startActivity(intent);
+        Intent intent = new Intent(this,DetailsActivity.class);
+        intent.putExtra("movie",adapter.getSelectedMovie(position));
+        startActivity(intent);
      }
 
      @Override

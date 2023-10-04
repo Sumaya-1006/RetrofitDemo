@@ -15,7 +15,7 @@ import java.util.Map;
 public class MovieModel implements Parcelable {
     @SerializedName("adult")
     private Boolean adult;
-    @SerializedName("backdropPath")
+    @SerializedName("backdrop_path")
     private String backdropPath;
     @Expose
     private List<Integer> genreIds;

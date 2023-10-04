@@ -71,6 +71,15 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.MovieViewH
         notifyDataSetChanged();
     }
 
+    public MovieModel getSelectedMovie(int position) {
+        if(list != null){
+            if(list.size()>0)
+                return list.get(position);
+        }
+        return null;
+    }
+
+
     public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView img;
         TextView id,title,date;
@@ -90,6 +99,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.MovieViewH
         listener.onMovieListener(getAdapterPosition());
 
         }
+
+        
     }
 
 }
